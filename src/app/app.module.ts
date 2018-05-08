@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 // Pages
-import { RecipesPage } from '../pages/';
+import { RecipesPage, CreateRecipePage } from '../pages/';
 
 // Providers
 import { RecipesProvider } from '../providers/recipes/recipes';
@@ -18,7 +18,8 @@ import { RecipesProvider } from '../providers/recipes/recipes';
 @NgModule({
   declarations: [
     MyApp,
-    RecipesPage
+    RecipesPage,
+    CreateRecipePage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,8 @@ import { RecipesProvider } from '../providers/recipes/recipes';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    RecipesPage
+    RecipesPage,
+    CreateRecipePage
   ],
   providers: [
     StatusBar,
