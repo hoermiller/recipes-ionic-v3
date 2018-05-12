@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar no-border-bottom>
+    <ion-title>shopping-list</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="segment">
+        <ion-segment-button value="shoppingList">
+          Shopping list
+        </ion-segment-button>
+        <ion-segment-button value="recipeList">
+          Recipe list
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let ingredient of ingredients">
+        - {{ ingredient.name }} ({{ ingredient.amount }}{{ingredient.unit}})
+    </ion-item>
+  </ion-list>
+
+  <!-- <recipes *ngIf="segment == 'recipeList'" [recipes]="recipes" [sliding]="false"></recipes> -->
+
+</ion-content>

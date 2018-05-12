@@ -18,7 +18,7 @@ export class RecipesPage {
   constructor(private navCtrl: NavController, private recipesProvider: RecipesProvider) {
   }
 
-  ionViewDidLoad(){
+  ionViewDidEnter(){
     this.getRecipes();
   }
 
@@ -26,6 +26,7 @@ export class RecipesPage {
     this.recipesProvider.get()
       .then((data) => {
         console.log(data);
+        this.recipes = data;
       })
       .catch((err) => console.log('An error occured', err));
   }

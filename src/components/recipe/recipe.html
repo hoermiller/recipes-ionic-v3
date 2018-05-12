@@ -1,0 +1,28 @@
+<ion-list *ngIf="recipes && recipes.length > 0">
+  <ion-item-sliding *ngFor="let recipe of recipes; let i = index">
+    <ion-item>
+      <h2>{{recipe.name}}</h2>
+      <h3>Ingredients:</h3>
+      <p *ngFor="let ingredient of recipe.ingredients">- {{ingredient.name}}</p>
+    </ion-item>
+    <ion-item-options side="right" *ngIf="sliding">
+      <button ion-button expandable color="secondary" (click)="addToWeek(recipe)">
+        Add to Week
+      </button>
+      <button ion-button expandable color="primary" (click)="addToShoppingList(recipe)">
+        Add to List
+      </button>
+      <button ion-button expandable color="danger" (click)="delete(i)">
+          Delete
+        </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+<ion-list *ngIf="!recipes || recipes.length == 0">
+  <ion-item *ngFor="let fake of fakeItems" class="fakeItem">
+    <h2></h2>
+    <h3></h3>
+    <p></p>
+  </ion-item>
+</ion-list>

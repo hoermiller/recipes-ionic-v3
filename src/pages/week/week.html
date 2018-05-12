@@ -1,0 +1,15 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ from | date:'d.' }} - {{ until | date:'d. MMM.' }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <recipe [recipes]="week.recipes" [sliding]="false"></recipe>
+
+</ion-content>
