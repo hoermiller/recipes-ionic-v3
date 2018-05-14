@@ -16,9 +16,11 @@ export class MyApp {
   rootPage:any = TabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
+    platform.ready().then((rdySrc) => {
+      if(rdySrc == 'cordova'){
+        statusBar.styleLightContent();
+        splashScreen.hide();
+      }
     });
   }
 }

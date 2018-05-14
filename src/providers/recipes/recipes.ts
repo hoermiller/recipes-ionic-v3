@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import moment from 'moment';
 
 // Models
-import { Recipe, Week } from '../../models/.';
+import { Recipe, Week, Ingredient } from '../../models/.';
 
 @Injectable()
 export class RecipesProvider {
 
   recipes: Recipe[] = new Array<Recipe>();
   weeks: Week[] = new Array<Week>();
-  shoppingList: Recipe[] = new Array<Recipe>();
+  shoppingList: string[] = new Array<string>();
 
   constructor() {   
   }
@@ -22,8 +22,8 @@ export class RecipesProvider {
     return week.calendarWeek == calendarWeek;
   }
 
-  private hasRecipe(recipe: Recipe, newRecipe: Recipe){
-    return recipe.name == newRecipe.name;
+  private hasRecipe(id1: string, id2: string){
+    return id1 == id2;
   }
 
   public add(recipe: Recipe) : any{
@@ -116,8 +116,8 @@ export class RecipesProvider {
     }
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        if(!this.shoppingList.some(e => this.hasRecipe(e, recipe))){
-          this.shoppingList.push(recipe);
+        if(!this.shoppingList.some(e => this.hasRecipe(e, recipe.id))){
+          this.shoppingList.push(recipe.id);
           localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
           resolve(this.shoppingList);
         } else {
@@ -138,6 +138,24 @@ export class RecipesProvider {
       }, 1000);
     });
     return promise;
+  }
+
+  public getRecipesById(ids: string[]) : any{
+    if(localStorage.getItem('recipes')){
+      this.recipes = JSON.parse(localStorage.getItem('recipes'));
+    }
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let result = new Array<Recipe>();
+        ids.forEach(id => {
+          if(this.recipes.some(r => this.hasRecipe(r.id, id))){
+            result.push(this.recipes.find(r => this.hasRecipe(r.id, id)));
+          }
+        });
+        resolve(result);
+      }, 1000);
+    });
+    return promise
   }
 
 }

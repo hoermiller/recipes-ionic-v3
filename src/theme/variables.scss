@@ -40,7 +40,10 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   white:      #fff,
-  grey:        lightgrey
+  light-grey: lightgrey,
+  grey:       #404c57,
+  dark-grey:  #293138,
+  yellow:     #fec005
 );
 
 
@@ -48,14 +51,21 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
+// $tabs-ios-tab-color-active: color($colors, yellow);
+$tabs-ios-tab-text-color: color($colors, grey);
+$tabs-ios-tab-icon-color: color($colors, grey);
+$tabs-ios-tab-icon-color-active: color($colors, yellow);
+$tabs-ios-tab-text-color-active: color($colors, dark-grey);
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$tabs-md-tab-text-color: color($colors, grey);
+$tabs-md-tab-icon-color: color($colors, grey);
+$tabs-md-tab-icon-color-active: color($colors, yellow);
+$tabs-md-tab-text-color-active: color($colors, dark-grey);
 
 
 // App Windows Variables

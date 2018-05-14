@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { RecipesProvider } from '../../providers/recipes/recipes';
 
 // Models
-import { Ingredient, Recipe } from '../../models/.';
+import { Ingredient, Recipe, Step } from '../../models/.';
 
 @Component({
   selector: 'page-create-recipe',
@@ -17,6 +17,7 @@ export class CreateRecipePage {
 
   form: FormGroup;
   recipe: Recipe = new Recipe;
+  steps: Step[];
   units = [
     { type: 'radio', label: 'Pieces', value: 'Pcs' },
     { type: 'radio', label: 'Gramm', value: 'g' },
@@ -29,13 +30,21 @@ export class CreateRecipePage {
   }
 
   ngOnInit(){
-    this.createForm();
+    this.createForm(this.generateId());
   }
 
-  private createForm(){
+  private generateId(): string{
+    let min = Math.ceil(1000);
+    let max = Math.floor(10000);
+    return 'recipe-' + Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  private createForm(id: string){
     this.form = this.fb.group({
+      id: [id, Validators.required],
       name: [null, Validators.required],
-      ingredients: [[], Validators.required]
+      ingredients: [[], Validators.required],
+      steps: [[]]
     });
   }
 
@@ -83,6 +92,13 @@ export class CreateRecipePage {
     });
 
     alert.present();
+  }
+
+  public addStep(){
+    this.form.value['steps'].push(new Step);
+    
+    this.steps = this.form.value['steps'];
+    console.log(this.steps);
   }
 
   public submit(f: NgForm){

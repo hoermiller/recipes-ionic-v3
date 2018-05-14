@@ -1,6 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { List } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 
 // Providers
 import { RecipesProvider } from '../../providers/recipes/recipes';
@@ -18,12 +17,22 @@ import { Recipe, Week } from '../../models/.'
 
 export class RecipeComponent {
 
-  @ViewChild(List) list: List;
   @Input() recipes: Recipe[];
   @Input() sliding: boolean;
   fakeItems: any[] = [1,2,3];
 
-  constructor(private navCtrl: NavController, private recipesProvider: RecipesProvider) {
+  constructor(private navCtrl: NavController, private recipesProvider: RecipesProvider, private toastCtrl: ToastController) {
+  }
+
+  private showToast(message: string){
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'top',
+      showCloseButton: true,
+      cssClass: 'receipt-toast'
+    });
+    toast.present();
   }
 
   public open(recipe: Recipe){
@@ -31,7 +40,6 @@ export class RecipeComponent {
   }
 
   public addToWeek(recipe: Recipe){
-    this.list.closeSlidingItems();
     this.recipesProvider.addToWeek(recipe)
       .then((week: Week) => {
         console.log('Added to week', week);
@@ -40,14 +48,18 @@ export class RecipeComponent {
   }
 
   public addToShoppingList(recipe: Recipe){
-    this.list.closeSlidingItems();
     this.recipesProvider.addToShoppingList(recipe)
-      .then(result => console.log(result))
-      .catch(err => console.log(err));
+      .then((result) => {
+        console.log(result);
+        this.showToast('Recipe was added to shopping list');
+      })
+      .catch((err) => {
+        console.log(err);
+        this.showToast(err.message);
+      });
   }
 
   public delete(index: number){
-    this.list.closeSlidingItems();
     this.recipesProvider.deleteRecipe(index)
       .then((recipes) => {
         this.recipes = recipes;

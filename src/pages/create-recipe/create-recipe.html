@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="white">
     <ion-title>create-recipe</ion-title>
   </ion-navbar>
 
@@ -8,32 +8,43 @@
 
 
 <ion-content>
-
   <form [formGroup]="form" (ngSubmit)="submit(form)">
-    <ion-list>
 
-      <ion-item-group>
+    <ion-card>
+      <ion-card-header no-padding>
         <ion-item>
-          <ion-label color="primary">Name</ion-label>
-          <ion-input class="form-control" type="text" [formControl]="form.controls['name']" placeholder="Enter name"></ion-input>
+          <ion-label floating>Name</ion-label>
+          <ion-input class="form-control" type="text" [formControl]="form.controls['name']"></ion-input>
         </ion-item>
-      </ion-item-group>
-
-      <ion-item-group>
-        <ion-item-divider color="primary">
-          Ingredients
-          <button ion-button item-end outline color="light" type="button" (click)="addIngredient()">Add</button>
+      </ion-card-header>
+      <ion-item-divider color="yellow">
+          <span ion-text color="white">Ingredients</span>
+          <button ion-button item-end color="light" type="button" (click)="addIngredient()">Add</button>
         </ion-item-divider>
-        <ion-item *ngFor="let ingredient of recipe.ingredients">
-          - {{ ingredient.name }} ({{ ingredient.amount }}{{ingredient.unit}})
-        </ion-item>
-      </ion-item-group>
-
-    </ion-list>
-
-    <button ion-button full type="submit">Save</button>
+      <ion-card-content>
+        <table margin-top>
+          <tr *ngFor="let ingredient of recipe.ingredients">
+            <td ion-text color="grey">{{ ingredient.amount }} {{ ingredient.unit }}</td>
+            <td ion-text color="grey" style="width:30%;">{{ ingredient.name }}</td>
+          </tr>
+        </table>
+        <div *ngIf="!recipe.ingredients" class="fakeItem">
+          <p></p>
+        </div>
+      </ion-card-content>
+    </ion-card>
 
   </form>
-    
 
+  <button ion-button type="button" (click)="addStep()">Add Step</button>
+  
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar style="padding:0px;">
+    <button ion-button full icon-left class="button-footer" color="yellow" [disabled]="!form.valid" (click)="submit(form)" type="submit">
+      <ion-icon name="ios-checkmark-circle-outline" class="icon-footer" color="white"></ion-icon>
+      <span ion-text color="white">Save recipe</span>
+    </button>
+  </ion-toolbar>
+</ion-footer>

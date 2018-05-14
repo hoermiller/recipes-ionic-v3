@@ -14,3 +14,40 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+ion-content{
+  &.content-ios, &.content-md{
+      background-color: color($colors, light);
+  }
+}
+
+.receipt-toast{
+  & div{
+    &.toast-wrapper{
+      background-color: rgba(color($colors, yellow), 1);
+      color: color($colors, white);
+    }
+  }
+}
+
+ion-icon.icon-footer{
+  font-size: 2em;
+  line-height: 0em;
+}
+
+ion-toolbar{
+  & button.button-footer{
+    min-height: 56px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  &.toolbar-md, &.toolbar-ios{
+    padding: 0px;
+  }
+}
+
+.card-ios, .card-md{
+  border-radius: 8px;
+}

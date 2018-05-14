@@ -1,28 +1,62 @@
-<ion-list *ngIf="recipes && recipes.length > 0">
-  <ion-item-sliding *ngFor="let recipe of recipes; let i = index">
-    <ion-item>
-      <h2>{{recipe.name}}</h2>
-      <h3>Ingredients:</h3>
-      <p *ngFor="let ingredient of recipe.ingredients">- {{ingredient.name}}</p>
-    </ion-item>
-    <ion-item-options side="right" *ngIf="sliding">
-      <button ion-button expandable color="secondary" (click)="addToWeek(recipe)">
-        Add to Week
-      </button>
-      <button ion-button expandable color="primary" (click)="addToShoppingList(recipe)">
-        Add to List
-      </button>
-      <button ion-button expandable color="danger" (click)="delete(i)">
-          Delete
-        </button>
-    </ion-item-options>
-  </ion-item-sliding>
-</ion-list>
+<div *ngIf="recipes && recipes.length > 0">
+  <ion-card *ngFor="let recipe of recipes; let i = index">
+    <ion-card-header>
+      <h2 ion-text color="dark">{{recipe.name}}</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <table>
+        <tr *ngFor="let ingredient of recipe.ingredients">
+          <td ion-text color="grey">{{ ingredient.amount }} {{ ingredient.unit }}</td>
+          <td ion-text color="grey" style="width:30%;">{{ ingredient.name }}</td>
+        </tr>
+      </table>
+    </ion-card-content>
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col col-6>
+          <ion-buttons left>
+            <button ion-button icon-only clear color="dark-grey" (click)="delete(i)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col col-6>
+          <ion-buttons right>
+            <button ion-button icon-only clear color="dark-grey" (click)="addToShoppingList(recipe)">
+              <ion-icon name="cart-outline"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</div>
 
-<ion-list *ngIf="!recipes || recipes.length == 0">
-  <ion-item *ngFor="let fake of fakeItems" class="fakeItem">
+
+<ion-card *ngIf="!recipes || recipes.length == 0" class="fakeItem">
+  <ion-card-header>
     <h2></h2>
-    <h3></h3>
+  </ion-card-header>
+  <ion-card-content>
     <p></p>
-  </ion-item>
-</ion-list>
+    <p></p>
+  </ion-card-content>
+  <ion-grid no-padding>
+      <ion-row>
+        <ion-col col-6>
+          <ion-buttons left>
+            <button ion-button icon-only clear color="dark-grey" disabled>
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col col-6>
+          <ion-buttons right>
+            <button ion-button icon-only clear color="dark-grey" disabled>
+              <ion-icon name="cart-outline"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-card>

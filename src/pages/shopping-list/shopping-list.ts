@@ -15,23 +15,31 @@ export class ShoppingListPage {
 
   segment = 'shoppingList';
   ingredients: Ingredient[] = new Array<Ingredient>();
-  recipes: Recipe[];
+  recipes: Recipe[] = new Array<Recipe>();
 
   constructor(private navCtrl: NavController, private recipesProvider: RecipesProvider) {
   }
 
   ionViewDidEnter() {
-    this.getRecipes();
+    this.ingredients = new Array<Ingredient>();
+    this.getShoppingList();
   }
 
-  private getRecipes(){
+  private getShoppingList(){
     this.recipesProvider.getShoppingList()
+      .then((ids) => {
+        this.getRecipesById(ids);
+      })
+      .catch(err => console.log);
+  }
+
+  private getRecipesById(ids: string[]){
+    this.recipesProvider.getRecipesById(ids)
       .then((recipes) => {
         this.recipes = recipes;
-        console.log(this.recipes);
         this.calculateIngredients(recipes);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log);
   }
 
   private hasIngredient(ingredient: Ingredient, newIngredient: Ingredient) : boolean {
@@ -43,7 +51,6 @@ export class ShoppingListPage {
       for(let ingredient of recipe.ingredients){
         if(this.ingredients.some(i => this.hasIngredient(i, ingredient))){
           let index = this.ingredients.indexOf(this.ingredients.find(i => this.hasIngredient(i, ingredient)));
-          console.log(this.ingredients[index]);
           if(this.ingredients[index].unit == ingredient.unit){
             this.ingredients[index].amount = parseInt(this.ingredients[index].amount.toString()) + parseInt(ingredient.amount.toString());
           } else {

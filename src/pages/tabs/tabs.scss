@@ -1,3 +1,9 @@
 page-tabs {
 
+    .tabs-ios, .tabs-md{
+        & .tabbar{
+            background: color($colors, white);
+        }
+    }
+
 }
