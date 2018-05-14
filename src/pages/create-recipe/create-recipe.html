@@ -34,6 +34,20 @@
       </ion-card-content>
     </ion-card>
 
+    <div formArrayName="steps">
+      <ion-card *ngFor="let step of form.controls.steps.controls; let i=index">
+          <ion-card-header>
+            Step {{ i + 1 }}
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item [formGroupName]="i">
+              <ion-label floating>Description</ion-label>
+              <ion-input class="form-control" type="text" formControlName="description"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+    </div>
+
   </form>
 
   <button ion-button type="button" (click)="addStep()">Add Step</button>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 
 // Providers
 import { RecipesProvider } from '../../providers/recipes/recipes';
@@ -44,7 +44,7 @@ export class CreateRecipePage {
       id: [id, Validators.required],
       name: [null, Validators.required],
       ingredients: [[], Validators.required],
-      steps: [[]]
+      steps: this.fb.array([])
     });
   }
 
@@ -94,11 +94,27 @@ export class CreateRecipePage {
     alert.present();
   }
 
-  public addStep(){
-    this.form.value['steps'].push(new Step);
-    
-    this.steps = this.form.value['steps'];
-    console.log(this.steps);
+  private initStep() {
+    // initialize our step
+    return this.fb.group({
+        description: ['', Validators.required]
+    });
+  }
+
+  public addStep() {
+    // add step to the list
+    const control = <FormArray>this.form.controls['steps'];
+    control.push(this.initStep());
+  }
+
+  public removeStep(i: number) {
+    // remove step from the list
+    const control = <FormArray>this.form.controls['steps'];
+    control.removeAt(i);
+  }
+
+  public onStepChange(event){
+    console.log(event);
   }
 
   public submit(f: NgForm){
