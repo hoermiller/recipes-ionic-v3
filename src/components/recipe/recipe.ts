@@ -10,6 +10,8 @@ import { RecipePage } from '../../pages/recipe/recipe';
 // Models
 import { Recipe, Week } from '../../models/.'
 
+declare var cordova: any;
+
 @Component({
   selector: 'recipe',
   templateUrl: 'recipe.html'
@@ -18,9 +20,27 @@ import { Recipe, Week } from '../../models/.'
 export class RecipeComponent {
 
   @Input() recipe: Recipe;
+  @Input() showAddToListButton: boolean;
+  headerImage: string = 'assets/imgs/recipe-header.png';
   fakeItems: any[] = [1];
 
   constructor(private navCtrl: NavController, private recipesProvider: RecipesProvider, private toastCtrl: ToastController) {
+  }
+
+  ngOnInit(){
+    if(this.recipe.picture){
+      this.headerImage = this.pathForImage(this.recipe.picture);
+    }
+  }
+
+  private pathForImage(img): string {
+    if (img === null) {
+      return '';
+    } else {
+      let res = cordova.file.dataDirectory + img;
+      console.log(res);
+      return res;
+    }
   }
 
   public open(recipe: Recipe){

@@ -32,7 +32,7 @@ export class CreateRecipePage {
     { type: 'radio', label: 'Mililiter', value: 'ml' },
     { type: 'radio', label: 'Liter', value: 'l' },
   ];
-  headerImage: string = '../assets/imgs/recipe-header.png';
+  headerImage: string = 'assets/imgs/recipe-header.png';
   cameraOptions: CameraOptions = {
     quality: 100,
     encodingType: this.camera.EncodingType.JPEG,
@@ -78,9 +78,8 @@ export class CreateRecipePage {
 
   private copyFileToLocalDir(namePath, currentName, newFileName) {
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
-      this.lastImage = newFileName;
-      this.form.controls['picture'].setValue(newFileName);
-      
+      this.headerImage = this.pathForImage(newFileName);
+      this.form.controls['picture'].setValue(newFileName); 
     }, error => {
       console.log(error);
       this.showToast('Error while storing file.');

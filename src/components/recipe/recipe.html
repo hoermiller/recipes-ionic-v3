@@ -1,5 +1,5 @@
-  <ion-card class="shadow level-3" *ngIf="recipe" (click)="open(recipe)">
-    <div class="recipe-header-image"></div>
+  <ion-card class="shadow level-3" *ngIf="recipe">
+    <img id="headerImage" [src]="headerImage" (click)="open(recipe)" />
     <ion-card-header style="border-bottom:1px solid lightgray; padding-bottom: 5px; margin-bottom: 10px;">
       <h2 ion-text color="dark">{{recipe.name}}</h2>
     </ion-card-header>
@@ -23,7 +23,7 @@
           </ion-col>
           <ion-col col-6>
             <ion-buttons right>
-              <button ion-button small round icon-left color="yellow" (click)="addToShoppingList(recipe)">
+              <button *ngIf="showAddToListButton" ion-button small round icon-left color="yellow" (click)="addToShoppingList(recipe)">
                 <ion-icon name="cart"></ion-icon>
                 Liste
               </button>

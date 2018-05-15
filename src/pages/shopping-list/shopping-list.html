@@ -25,7 +25,7 @@
   </ion-list>
 
   <div *ngIf="segment == 'recipeList'">
-      <recipe *ngFor="let recipe of recipes" [recipe]="recipe"></recipe>
+      <recipe *ngFor="let recipe of recipes" [recipe]="recipe" [showAddToListButton]="false"></recipe>
   </div>
   
 

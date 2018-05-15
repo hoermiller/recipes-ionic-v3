@@ -11,9 +11,7 @@
   <form [formGroup]="form" (ngSubmit)="submit(form)">
 
     <ion-card>
-      <div *ngIf="lastImage == null" class="recipe-header-image" [ngStyle]="{'background-image': 'url(' + headerImage + ')'}" (click)="getPicture()"></div>
-      <div *ngIf="lastImage != null" id="headerImage" class="recipe-header-image" [ngStyle]="{'background-image': pathForImage(lastImage) }"></div>
-      <!-- <img id="headerImage" *ngIf="lastImage != null"  /> -->
+      <img id="headerImage" [src]="headerImage" (click)="getPicture()" />
       <ion-card-header no-padding>
         <ion-item>
           <ion-label floating>Name</ion-label>
