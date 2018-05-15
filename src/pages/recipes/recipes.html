@@ -12,6 +12,6 @@
 
 <ion-content>
 
-  <recipe [recipes]="recipes" [sliding]="true"></recipe>
+  <recipe *ngFor="let recipe of recipes" [recipe]="recipe"></recipe>
 
 </ion-content>

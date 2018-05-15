@@ -140,7 +140,7 @@ export class RecipesProvider {
     return promise;
   }
 
-  public getRecipesById(ids: string[]) : any{
+  public getRecipesByIds(ids: string[]) : any{
     if(localStorage.getItem('recipes')){
       this.recipes = JSON.parse(localStorage.getItem('recipes'));
     }
@@ -153,6 +153,22 @@ export class RecipesProvider {
           }
         });
         resolve(result);
+      }, 1000);
+    });
+    return promise
+  }
+
+  public getRecipeById(id: string) : any{
+    if(localStorage.getItem('recipes')){
+      this.recipes = JSON.parse(localStorage.getItem('recipes'));
+    }
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if(this.recipes.some(r => this.hasRecipe(r.id, id))){
+          resolve(this.recipes.find(r => this.hasRecipe(r.id, id)));
+        } else {
+          reject({ code: 400, message: 'Recipe not found' });
+        }
       }, 1000);
     });
     return promise

@@ -20,7 +20,7 @@ export class ShoppingListPage {
   constructor(private navCtrl: NavController, private recipesProvider: RecipesProvider) {
   }
 
-  ionViewDidEnter() {
+  ionViewDidLoad() {
     this.ingredients = new Array<Ingredient>();
     this.getShoppingList();
   }
@@ -28,16 +28,16 @@ export class ShoppingListPage {
   private getShoppingList(){
     this.recipesProvider.getShoppingList()
       .then((ids) => {
-        this.getRecipesById(ids);
+        this.getRecipesByIds(ids);
       })
       .catch(err => console.log);
   }
 
-  private getRecipesById(ids: string[]){
-    this.recipesProvider.getRecipesById(ids)
+  private getRecipesByIds(ids: string[]){
+    this.recipesProvider.getRecipesByIds(ids)
       .then((recipes) => {
         this.recipes = recipes;
-        this.calculateIngredients(recipes);
+        this.calculateIngredients(recipes);       
       })
       .catch(err => console.log);
   }
@@ -49,20 +49,28 @@ export class ShoppingListPage {
   private calculateIngredients(recipes: Recipe[]){
     recipes.forEach(recipe => {
       for(let ingredient of recipe.ingredients){
+        // Check if ingredient is already present in array
         if(this.ingredients.some(i => this.hasIngredient(i, ingredient))){
+          // Get the index of the ingredient in the array
           let index = this.ingredients.indexOf(this.ingredients.find(i => this.hasIngredient(i, ingredient)));
+          // Compare if the measurement units are the same
           if(this.ingredients[index].unit == ingredient.unit){
+            // Increase the amount of ingredient in the shopping list
             this.ingredients[index].amount = parseInt(this.ingredients[index].amount.toString()) + parseInt(ingredient.amount.toString());
           } else {
+            // If the measurement units are not the same add the ingredient seperately
             this.ingredients.push(ingredient);
           }
         } else {
+          // If the ingredient does not exist in the array add it
           this.ingredients.push(ingredient);
         }
       }
     });
   }
 
-
+  public test(){
+    console.log(this.ingredients);
+  }
 
 }

@@ -17,11 +17,14 @@ import { Recipe, Week } from '../../models/.'
 
 export class RecipeComponent {
 
-  @Input() recipes: Recipe[];
-  @Input() sliding: boolean;
-  fakeItems: any[] = [1,2,3];
+  @Input() recipe: Recipe;
+  fakeItems: any[] = [1];
 
   constructor(private navCtrl: NavController, private recipesProvider: RecipesProvider, private toastCtrl: ToastController) {
+  }
+
+  public open(recipe: Recipe){
+    this.navCtrl.push(RecipePage, { id: recipe.id })
   }
 
   private showToast(message: string){
@@ -35,18 +38,6 @@ export class RecipeComponent {
     toast.present();
   }
 
-  public open(recipe: Recipe){
-    this.navCtrl.push(RecipePage, { recipe: recipe });
-  }
-
-  public addToWeek(recipe: Recipe){
-    this.recipesProvider.addToWeek(recipe)
-      .then((week: Week) => {
-        console.log('Added to week', week);
-      })
-      .catch(err => console.log(err));
-  }
-
   public addToShoppingList(recipe: Recipe){
     this.recipesProvider.addToShoppingList(recipe)
       .then((result) => {
@@ -57,14 +48,6 @@ export class RecipeComponent {
         console.log(err);
         this.showToast(err.message);
       });
-  }
-
-  public delete(index: number){
-    this.recipesProvider.deleteRecipe(index)
-      .then((recipes) => {
-        this.recipes = recipes;
-      })
-      .catch(err => console.log(err));
   }
 
 }

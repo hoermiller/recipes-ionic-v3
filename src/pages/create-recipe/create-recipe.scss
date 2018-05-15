@@ -42,4 +42,36 @@ page-create-recipe {
         }
     }
 
+    ion-input, textarea{
+        &.round{
+            border: 1px solid color($colors, light-grey);
+            border-radius: 8px;
+        }
+    
+    }
+
+    textarea{
+        width: 100%;
+        min-height: 1em;
+        padding: 10px;
+    }
+
+    button{
+        &.center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        } 
+    }
+
+    ion-card{
+        & div.recipe-header-image{
+          width: 100%;
+          height: 10em;
+          background-color: color($colors, light-grey);
+          background-size: cover;
+          background-position: center;
+        }
+      }
+
 }

@@ -43,7 +43,10 @@ $colors: (
   light-grey: lightgrey,
   grey:       #404c57,
   dark-grey:  #293138,
-  yellow:     #fec005
+  yellow: (
+    base:     #fec005,
+    contrast: #ffffff
+  )
 );
 
 
@@ -51,11 +54,12 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-// $tabs-ios-tab-color-active: color($colors, yellow);
 $tabs-ios-tab-text-color: color($colors, grey);
 $tabs-ios-tab-icon-color: color($colors, grey);
-$tabs-ios-tab-icon-color-active: color($colors, yellow);
-$tabs-ios-tab-text-color-active: color($colors, dark-grey);
+$tabs-ios-tab-icon-color-active: color($colors, yellow, base);
+$tabs-ios-tab-text-color-active: color($colors, yellow, base);
+
+$checkbox-ios-icon-checkmark-color: color($colors, white);
 
 
 // App Material Design Variables
@@ -64,8 +68,8 @@ $tabs-ios-tab-text-color-active: color($colors, dark-grey);
 
 $tabs-md-tab-text-color: color($colors, grey);
 $tabs-md-tab-icon-color: color($colors, grey);
-$tabs-md-tab-icon-color-active: color($colors, yellow);
-$tabs-md-tab-text-color-active: color($colors, dark-grey);
+$tabs-md-tab-icon-color-active: color($colors, yellow, base);
+$tabs-md-tab-text-color-active: color($colors, yellow, base);
 
 
 // App Windows Variables
@@ -95,6 +99,15 @@ $tabs-md-tab-text-color-active: color($colors, dark-grey);
 
 // Fonts
 // --------------------------------------------------
+
+@font-face {
+  font-family: 'kitchen';
+  src: url('../assets/fonts/kitchen/kitchen.eot');
+  src: url('../assets/fonts/kitchen/kitchen.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/kitchen/kitchen.woff') format('woff'),
+       url('../assets/fonts/kitchen/kitchen.ttf') format('truetype'),
+       url('../assets/fonts/kitchen/kitchen.svg#fontname') format('svg');
+}
 
 @import "roboto";
 @import "noto-sans";

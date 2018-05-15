@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the RecipePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+// Providers
+import { RecipesProvider } from '../../providers/recipes/recipes';
+
+// Models
+import { Recipe } from '../../models/.';
 
 @Component({
   selector: 'page-recipe',
@@ -14,11 +13,26 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class RecipePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  recipe: Recipe;
+  id: string;
+
+  constructor(private navCtrl: NavController, private navParams: NavParams, private recipesProvider: RecipesProvider) {
+    this.id = this.navParams.get('id');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RecipePage');
+    if(this.id){
+      this.getRecipeById(this.id);
+    }
+  }
+
+  private getRecipeById(id: string){
+    this.recipesProvider.getRecipeById(id)
+      .then((data) => {
+        this.recipe = data;
+        console.log(this.recipe);
+      })
+      .catch(err => console.log);
   }
 
 }

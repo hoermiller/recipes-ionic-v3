@@ -12,7 +12,6 @@ export class TabsPage {
 
   tabs = [
     { page: RecipesPage, title: 'Recipes', icon: 'list-box' },
-    { page: WeekPage, title: 'Week', icon: 'calendar' },
     { page: ShoppingListPage, title: 'Shopping list', icon: 'cart' }
   ];
 

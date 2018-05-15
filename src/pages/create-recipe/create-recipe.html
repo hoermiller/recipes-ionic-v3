@@ -11,6 +11,9 @@
   <form [formGroup]="form" (ngSubmit)="submit(form)">
 
     <ion-card>
+      <div *ngIf="lastImage == null" class="recipe-header-image" [ngStyle]="{'background-image': 'url(' + headerImage + ')'}" (click)="getPicture()"></div>
+      <div *ngIf="lastImage != null" id="headerImage" class="recipe-header-image" [ngStyle]="{'background-image': pathForImage(lastImage) }"></div>
+      <!-- <img id="headerImage" *ngIf="lastImage != null"  /> -->
       <ion-card-header no-padding>
         <ion-item>
           <ion-label floating>Name</ion-label>
@@ -40,9 +43,10 @@
             Step {{ i + 1 }}
           </ion-card-header>
           <ion-card-content>
-            <ion-item [formGroupName]="i">
-              <ion-label floating>Description</ion-label>
-              <ion-input class="form-control" type="text" formControlName="description"></ion-input>
+            <ion-item [formGroupName]="i" no-padding>
+              <textarea class="round" formControlName="description">
+              </textarea>
+              <!-- <ion-input class="form-control round" type="textarea" formControlName="description"></ion-input> -->
             </ion-item>
           </ion-card-content>
         </ion-card>
@@ -50,8 +54,11 @@
 
   </form>
 
-  <button ion-button type="button" (click)="addStep()">Add Step</button>
-  
+  <button ion-button round icon-left color="yellow" type="button" class="center" (click)="addStep()">
+    <ion-icon name="add" color="white"></ion-icon>
+    <span ion-text color="white">Add Step</span>
+  </button>
+
 </ion-content>
 
 <ion-footer>

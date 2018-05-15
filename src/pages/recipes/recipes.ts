@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 
 // Providers
 import { RecipesProvider } from '../../providers/recipes/recipes'
 
 // Pages
-import { CreateRecipePage } from '../.';
+import { CreateRecipePage, RecipePage } from '../.';
+
+// Models
+import { Recipe } from '../../models/.';
 
 @Component({
   selector: 'page-recipes',
@@ -13,9 +16,9 @@ import { CreateRecipePage } from '../.';
 })
 export class RecipesPage {
 
-  recipes: any[];
+  recipes: Recipe[];
 
-  constructor(private navCtrl: NavController, private recipesProvider: RecipesProvider) {
+  constructor(private navCtrl: NavController, private recipesProvider: RecipesProvider, private toastCtrl: ToastController) {
   }
 
   ionViewDidEnter(){
@@ -25,10 +28,9 @@ export class RecipesPage {
   private getRecipes(){
     this.recipesProvider.get()
       .then((data) => {
-        console.log(data);
         this.recipes = data;
       })
-      .catch((err) => console.log('An error occured', err));
+      .catch(err => console.log);
   }
 
   public create(){

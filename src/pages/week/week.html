@@ -10,6 +10,6 @@
 
 <ion-content>
 
-  <recipe [recipes]="week.recipes" [sliding]="false"></recipe>
+  <recipe *ngFor="let recipe of week.recipes" [recipe]="recipe"></recipe>
 
 </ion-content>

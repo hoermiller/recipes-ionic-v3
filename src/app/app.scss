@@ -18,14 +18,14 @@
 
 ion-content{
   &.content-ios, &.content-md{
-      background-color: color($colors, light);
+      background-color: color($colors, white);
   }
 }
 
 .receipt-toast{
   & div{
     &.toast-wrapper{
-      background-color: rgba(color($colors, yellow), 1);
+      background-color: rgba(color($colors, yellow, base), 1);
       color: color($colors, white);
     }
   }
@@ -51,3 +51,282 @@ ion-toolbar{
 .card-ios, .card-md{
   border-radius: 8px;
 }
+
+
+
+// Drop Shadows
+// --------------------------------------------------
+// Adds drop shadows to box elements based on Material
+// design shadow concept.
+
+.shadow{
+  &.level-1{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  &.level-2{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  &.level-3{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  &.level-4{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  &.level-5{
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+
+
+
+// Fonts
+// --------------------------------------------------
+[class*=" kitchen-"]:before, [class*=" kitchen-"]:before {
+    font-family: "kitchen" !important;
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+ 
+.kitchen-apple-1:before { content: '\e800'; } /* '' */
+.kitchen-apple:before { content: '\e801'; } /* '' */
+.kitchen-asparagus:before { content: '\e802'; } /* '' */
+.kitchen-aubergine:before { content: '\e803'; } /* '' */
+.kitchen-avocado:before { content: '\e804'; } /* '' */
+.kitchen-bacon:before { content: '\e805'; } /* '' */
+.kitchen-baguette:before { content: '\e806'; } /* '' */
+.kitchen-banana:before { content: '\e807'; } /* '' */
+.kitchen-beans:before { content: '\e808'; } /* '' */
+.kitchen-biscuit:before { content: '\e809'; } /* '' */
+.kitchen-blueberries:before { content: '\e80a'; } /* '' */
+.kitchen-boiled:before { content: '\e80b'; } /* '' */
+.kitchen-bowl-1:before { content: '\e80c'; } /* '' */
+.kitchen-bowl:before { content: '\e80d'; } /* '' */
+.kitchen-bread-1:before { content: '\e80e'; } /* '' */
+.kitchen-bread-2:before { content: '\e80f'; } /* '' */
+.kitchen-bread:before { content: '\e810'; } /* '' */
+.kitchen-broccoli:before { content: '\e811'; } /* '' */
+.kitchen-butcher:before { content: '\e812'; } /* '' */
+.kitchen-butter:before { content: '\e813'; } /* '' */
+.kitchen-cabbage:before { content: '\e814'; } /* '' */
+.kitchen-cake:before { content: '\e815'; } /* '' */
+.kitchen-can-1:before { content: '\e816'; } /* '' */
+.kitchen-can-2:before { content: '\e817'; } /* '' */
+.kitchen-can:before { content: '\e818'; } /* '' */
+.kitchen-candy-1:before { content: '\e819'; } /* '' */
+.kitchen-candy:before { content: '\e81a'; } /* '' */
+.kitchen-carrot:before { content: '\e81b'; } /* '' */
+.kitchen-cauliflower:before { content: '\e81c'; } /* '' */
+.kitchen-cereals:before { content: '\e81d'; } /* '' */
+.kitchen-cheese-1:before { content: '\e81e'; } /* '' */
+.kitchen-cheese:before { content: '\e81f'; } /* '' */
+.kitchen-chef:before { content: '\e820'; } /* '' */
+.kitchen-cherries:before { content: '\e821'; } /* '' */
+.kitchen-chili:before { content: '\e822'; } /* '' */
+.kitchen-chips:before { content: '\e823'; } /* '' */
+.kitchen-chives:before { content: '\e824'; } /* '' */
+.kitchen-chocolate:before { content: '\e825'; } /* '' */
+.kitchen-coconut:before { content: '\e826'; } /* '' */
+.kitchen-coffee-1:before { content: '\e827'; } /* '' */
+.kitchen-coffee-2:before { content: '\e828'; } /* '' */
+.kitchen-coffee-3:before { content: '\e829'; } /* '' */
+.kitchen-coffee-4:before { content: '\e82a'; } /* '' */
+.kitchen-coffee-maker:before { content: '\e82b'; } /* '' */
+.kitchen-coffee:before { content: '\e82c'; } /* '' */
+.kitchen-cookies:before { content: '\e82d'; } /* '' */
+.kitchen-corckscrew:before { content: '\e82e'; } /* '' */
+.kitchen-corn:before { content: '\e82f'; } /* '' */
+.kitchen-corndog:before { content: '\e830'; } /* '' */
+.kitchen-croissant:before { content: '\e831'; } /* '' */
+.kitchen-cucumber:before { content: '\e832'; } /* '' */
+.kitchen-cup:before { content: '\e833'; } /* '' */
+.kitchen-cupcake-1:before { content: '\e834'; } /* '' */
+.kitchen-cupcake-2:before { content: '\e835'; } /* '' */
+.kitchen-cupcake:before { content: '\e836'; } /* '' */
+.kitchen-cutlery:before { content: '\e837'; } /* '' */
+.kitchen-dairy:before { content: '\e838'; } /* '' */
+.kitchen-dish:before { content: '\e839'; } /* '' */
+.kitchen-dishes:before { content: '\e83a'; } /* '' */
+.kitchen-doughnut-1:before { content: '\e83b'; } /* '' */
+.kitchen-doughnut-2:before { content: '\e83c'; } /* '' */
+.kitchen-doughnut:before { content: '\e83d'; } /* '' */
+.kitchen-egg:before { content: '\e83e'; } /* '' */
+.kitchen-eggs:before { content: '\e83f'; } /* '' */
+.kitchen-fig:before { content: '\e840'; } /* '' */
+.kitchen-fish:before { content: '\e841'; } /* '' */
+.kitchen-flour-1:before { content: '\e842'; } /* '' */
+.kitchen-flour:before { content: '\e843'; } /* '' */
+.kitchen-food:before { content: '\e844'; } /* '' */
+.kitchen-fork:before { content: '\e845'; } /* '' */
+.kitchen-frappe:before { content: '\e846'; } /* '' */
+.kitchen-fries:before { content: '\e847'; } /* '' */
+.kitchen-garlic:before { content: '\e848'; } /* '' */
+.kitchen-gingerbread:before { content: '\e849'; } /* '' */
+.kitchen-glass-1:before { content: '\e84a'; } /* '' */
+.kitchen-glass-2:before { content: '\e84b'; } /* '' */
+.kitchen-glass-3:before { content: '\e84c'; } /* '' */
+.kitchen-glass-4:before { content: '\e84d'; } /* '' */
+.kitchen-glass-5:before { content: '\e84e'; } /* '' */
+.kitchen-glass-6:before { content: '\e84f'; } /* '' */
+.kitchen-glass:before { content: '\e850'; } /* '' */
+.kitchen-grain:before { content: '\e851'; } /* '' */
+.kitchen-grapes:before { content: '\e852'; } /* '' */
+.kitchen-grater:before { content: '\e853'; } /* '' */
+.kitchen-grinder:before { content: '\e854'; } /* '' */
+.kitchen-groceries:before { content: '\e855'; } /* '' */
+.kitchen-ham:before { content: '\e856'; } /* '' */
+.kitchen-hamburguer-1:before { content: '\e857'; } /* '' */
+.kitchen-hamburguer:before { content: '\e858'; } /* '' */
+.kitchen-hazelnut:before { content: '\e859'; } /* '' */
+.kitchen-honey-1:before { content: '\e85a'; } /* '' */
+.kitchen-honey:before { content: '\e85b'; } /* '' */
+.kitchen-hot-dog-1:before { content: '\e85c'; } /* '' */
+.kitchen-hot-dog:before { content: '\e85d'; } /* '' */
+.kitchen-ice-cream-1:before { content: '\e85e'; } /* '' */
+.kitchen-ice-cream-2:before { content: '\e85f'; } /* '' */
+.kitchen-ice-cream-3:before { content: '\e860'; } /* '' */
+.kitchen-ice-cream-4:before { content: '\e861'; } /* '' */
+.kitchen-ice-cream-5:before { content: '\e862'; } /* '' */
+.kitchen-ice-cream-6:before { content: '\e863'; } /* '' */
+.kitchen-ice-cream-7:before { content: '\e864'; } /* '' */
+.kitchen-ice-cream-8:before { content: '\e865'; } /* '' */
+.kitchen-ice-cream-9:before { content: '\e866'; } /* '' */
+.kitchen-ice-cream-10:before { content: '\e867'; } /* '' */
+.kitchen-ice-cream-11:before { content: '\e868'; } /* '' */
+.kitchen-ice-cream-12:before { content: '\e869'; } /* '' */
+.kitchen-ice-cream-13:before { content: '\e86a'; } /* '' */
+.kitchen-ice-cream-14:before { content: '\e86b'; } /* '' */
+.kitchen-ice-cream:before { content: '\e86c'; } /* '' */
+.kitchen-jam-1:before { content: '\e86d'; } /* '' */
+.kitchen-jam:before { content: '\e86e'; } /* '' */
+.kitchen-jawbreaker:before { content: '\e86f'; } /* '' */
+.kitchen-jelly:before { content: '\e870'; } /* '' */
+.kitchen-kebab-1:before { content: '\e871'; } /* '' */
+.kitchen-kebab-2:before { content: '\e872'; } /* '' */
+.kitchen-kebab:before { content: '\e873'; } /* '' */
+.kitchen-kitchen:before { content: '\e874'; } /* '' */
+.kitchen-knife-1:before { content: '\e875'; } /* '' */
+.kitchen-knife-2:before { content: '\e876'; } /* '' */
+.kitchen-knife-3:before { content: '\e877'; } /* '' */
+.kitchen-knife:before { content: '\e878'; } /* '' */
+.kitchen-knives:before { content: '\e879'; } /* '' */
+.kitchen-ladle:before { content: '\e87a'; } /* '' */
+.kitchen-lemon-1:before { content: '\e87b'; } /* '' */
+.kitchen-lemon:before { content: '\e87c'; } /* '' */
+.kitchen-lime:before { content: '\e87d'; } /* '' */
+.kitchen-meat-1:before { content: '\e87e'; } /* '' */
+.kitchen-meat-2:before { content: '\e87f'; } /* '' */
+.kitchen-meat:before { content: '\e880'; } /* '' */
+.kitchen-milk-1:before { content: '\e881'; } /* '' */
+.kitchen-milk:before { content: '\e882'; } /* '' */
+.kitchen-mixer:before { content: '\e883'; } /* '' */
+.kitchen-mug:before { content: '\e884'; } /* '' */
+.kitchen-mushroom:before { content: '\e885'; } /* '' */
+.kitchen-mushrooms:before { content: '\e886'; } /* '' */
+.kitchen-mustard-1:before { content: '\e887'; } /* '' */
+.kitchen-mustard-2:before { content: '\e888'; } /* '' */
+.kitchen-mustard:before { content: '\e889'; } /* '' */
+.kitchen-noodles:before { content: '\e88a'; } /* '' */
+.kitchen-oat:before { content: '\e88b'; } /* '' */
+.kitchen-octopus:before { content: '\e88c'; } /* '' */
+.kitchen-oil:before { content: '\e88d'; } /* '' */
+.kitchen-olives:before { content: '\e88e'; } /* '' */
+.kitchen-onion-1:before { content: '\e88f'; } /* '' */
+.kitchen-onion:before { content: '\e890'; } /* '' */
+.kitchen-orange:before { content: '\e891'; } /* '' */
+.kitchen-ornating:before { content: '\e892'; } /* '' */
+.kitchen-pan:before { content: '\e893'; } /* '' */
+.kitchen-pancakes-1:before { content: '\e894'; } /* '' */
+.kitchen-pancakes:before { content: '\e895'; } /* '' */
+.kitchen-pasta-1:before { content: '\e896'; } /* '' */
+.kitchen-pasta:before { content: '\e897'; } /* '' */
+.kitchen-peach:before { content: '\e898'; } /* '' */
+.kitchen-pear:before { content: '\e899'; } /* '' */
+.kitchen-peas:before { content: '\e89a'; } /* '' */
+.kitchen-pepper-1:before { content: '\e89b'; } /* '' */
+.kitchen-pepper:before { content: '\e89c'; } /* '' */
+.kitchen-pickles:before { content: '\e89d'; } /* '' */
+.kitchen-pie-1:before { content: '\e89e'; } /* '' */
+.kitchen-pie-2:before { content: '\e89f'; } /* '' */
+.kitchen-pie:before { content: '\e8a0'; } /* '' */
+.kitchen-pineapple:before { content: '\e8a1'; } /* '' */
+.kitchen-pint:before { content: '\e8a2'; } /* '' */
+.kitchen-pistachio:before { content: '\e8a3'; } /* '' */
+.kitchen-pizza-1:before { content: '\e8a4'; } /* '' */
+.kitchen-pizza-2:before { content: '\e8a5'; } /* '' */
+.kitchen-pizza-3:before { content: '\e8a6'; } /* '' */
+.kitchen-pizza-4:before { content: '\e8a7'; } /* '' */
+.kitchen-pizza-5:before { content: '\e8a8'; } /* '' */
+.kitchen-pizza:before { content: '\e8a9'; } /* '' */
+.kitchen-pomegranate:before { content: '\e8aa'; } /* '' */
+.kitchen-popsicle:before { content: '\e8ab'; } /* '' */
+.kitchen-pot-1:before { content: '\e8ac'; } /* '' */
+.kitchen-pot-2:before { content: '\e8ad'; } /* '' */
+.kitchen-pot:before { content: '\e8ae'; } /* '' */
+.kitchen-potatoes-1:before { content: '\e8af'; } /* '' */
+.kitchen-potatoes-2:before { content: '\e8b0'; } /* '' */
+.kitchen-potatoes:before { content: '\e8b1'; } /* '' */
+.kitchen-pretzel:before { content: '\e8b2'; } /* '' */
+.kitchen-pudding:before { content: '\e8b3'; } /* '' */
+.kitchen-pumpkin:before { content: '\e8b4'; } /* '' */
+.kitchen-radish:before { content: '\e8b5'; } /* '' */
+.kitchen-raspberry:before { content: '\e8b6'; } /* '' */
+.kitchen-rice:before { content: '\e8b7'; } /* '' */
+.kitchen-risotto:before { content: '\e8b8'; } /* '' */
+.kitchen-rolling-pin:before { content: '\e8b9'; } /* '' */
+.kitchen-salad-1:before { content: '\e8ba'; } /* '' */
+.kitchen-salad:before { content: '\e8bb'; } /* '' */
+.kitchen-salami:before { content: '\e8bc'; } /* '' */
+.kitchen-salmon:before { content: '\e8bd'; } /* '' */
+.kitchen-salt:before { content: '\e8be'; } /* '' */
+.kitchen-sandwich-1:before { content: '\e8bf'; } /* '' */
+.kitchen-sandwich:before { content: '\e8c0'; } /* '' */
+.kitchen-sausage:before { content: '\e8c1'; } /* '' */
+.kitchen-scale:before { content: '\e8c2'; } /* '' */
+.kitchen-seeds:before { content: '\e8c3'; } /* '' */
+.kitchen-shrimp:before { content: '\e8c4'; } /* '' */
+.kitchen-slotted-spoon:before { content: '\e8c5'; } /* '' */
+.kitchen-sorbet:before { content: '\e8c6'; } /* '' */
+.kitchen-spaguetti:before { content: '\e8c7'; } /* '' */
+.kitchen-spatula-1:before { content: '\e8c8'; } /* '' */
+.kitchen-spatula:before { content: '\e8c9'; } /* '' */
+.kitchen-spices:before { content: '\e8ca'; } /* '' */
+.kitchen-spoon:before { content: '\e8cb'; } /* '' */
+.kitchen-steak:before { content: '\e8cc'; } /* '' */
+.kitchen-stew-1:before { content: '\e8cd'; } /* '' */
+.kitchen-stew:before { content: '\e8ce'; } /* '' */
+.kitchen-strainer:before { content: '\e8cf'; } /* '' */
+.kitchen-strawberry:before { content: '\e8d0'; } /* '' */
+.kitchen-sushi-1:before { content: '\e8d1'; } /* '' */
+.kitchen-sushi-2:before { content: '\e8d2'; } /* '' */
+.kitchen-sushi:before { content: '\e8d3'; } /* '' */
+.kitchen-taco:before { content: '\e8d4'; } /* '' */
+.kitchen-tea-1:before { content: '\e8d5'; } /* '' */
+.kitchen-tea:before { content: '\e8d6'; } /* '' */
+.kitchen-teapot-1:before { content: '\e8d7'; } /* '' */
+.kitchen-teapot:before { content: '\e8d8'; } /* '' */
+.kitchen-teaspoon:before { content: '\e8d9'; } /* '' */
+.kitchen-tenderizer:before { content: '\e8da'; } /* '' */
+.kitchen-thermos:before { content: '\e8db'; } /* '' */
+.kitchen-toast:before { content: '\e8dc'; } /* '' */
+.kitchen-toaster:before { content: '\e8dd'; } /* '' */
+.kitchen-toffee:before { content: '\e8de'; } /* '' */
+.kitchen-tomato:before { content: '\e8df'; } /* '' */
+.kitchen-turkey:before { content: '\e8e0'; } /* '' */
+.kitchen-water-1:before { content: '\e8e1'; } /* '' */
+.kitchen-water:before { content: '\e8e2'; } /* '' */
+.kitchen-watermelon:before { content: '\e8e3'; } /* '' */
+.kitchen-whisk:before { content: '\e8e4'; } /* '' */
+.kitchen-wrap:before { content: '\e8e5'; } /* '' */

@@ -15,11 +15,18 @@
 <ion-content>
 
   <ion-list *ngIf="segment == 'shoppingList'">
-    <ion-item *ngFor="let ingredient of ingredients">
-        - {{ ingredient.name }} ({{ ingredient.amount }}{{ingredient.unit}})
+    <ion-item *ngFor="let ingredient of ingredients; let i = index">
+      <ion-label>
+        <span style="display: block;">{{ ingredient.name }}</span>
+        <span ion-text color="grey" style="display: block; font-size: 0.6em;">{{ ingredient.amount }}{{ingredient.unit}}</span>
+      </ion-label>
+      <ion-checkbox color="yellow" [(ngModel)]="ingredient.inStock" (ionChange)="test()"></ion-checkbox>
     </ion-item>
   </ion-list>
 
-  <recipe *ngIf="segment == 'recipeList'" [recipes]="recipes" [sliding]="false"></recipe>
+  <div *ngIf="segment == 'recipeList'">
+      <recipe *ngFor="let recipe of recipes" [recipe]="recipe"></recipe>
+  </div>
+  
 
 </ion-content>

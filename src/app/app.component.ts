@@ -18,7 +18,7 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then((rdySrc) => {
       if(rdySrc == 'cordova'){
-        statusBar.styleLightContent();
+        statusBar.styleDefault();
         splashScreen.hide();
       }
     });
